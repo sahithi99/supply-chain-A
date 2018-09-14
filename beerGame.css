@@ -1,0 +1,87 @@
+body { 
+  font-family: Tahoma;
+  margin: 0;
+  color:white;
+  font-weight:bold;
+}
+
+.login-form{
+	text-align: center;
+    margin-top: 250px;
+	float:right;
+	width:50%;
+}
+
+.btn{
+	color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+	background-color: dodgerblue;
+  color: white;
+}
+
+.dropdown{
+    background-color: aliceblue;
+}
+
+.header {
+  background-color: black;
+  overflow: hidden;
+  padding: 10px 20px;
+}
+
+.header-right {
+  float: right;
+}
+
+
+.header a {
+    float: left;
+    padding: 5px;
+    text-decoration: none;
+	color:white;
+    font-size: 18px;
+    line-height: 20px;
+    border-radius: 4px;
+}
+
+.logo {
+  font-size: 22px;
+}
+
+.content {
+	padding-left:20px;
+	width:50%;
+	float:left;
+	display: inline-block;
+	line-height:1.8em;
+	display:inline;
+	text-align:justify;
+}
+
+.container{
+	margin-top:20px;
+}
+.contentRight {
+	margin-right:20px;
+	width:40%;
+	display: inline-block;	
+	height:400px;
+	float:right;
+	line-height:1.8em;
+	text-align:justify;
+}
+
+.contentCompleteFlow {
+	padding:30px;
+	line-height:1.8em;
+	text-align:justify;
+}
+
+ul.cls-circle {
+    list-style-type: circle;
+}
+
+li {
+	margin-bottom: 5px
+}

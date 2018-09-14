@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="beerGame.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="script/script.js"></script>
+<title>Retailer</title>
+<style>
+
+h1{
+	margin:0px;
+}
+
+body{
+  background-image: url("images/completeflow-background.jpg");
+}
+
+.container{
+	display: block;
+	position: relative;
+	height:100%;
+}
+
+.container::after {
+  background-size:100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+table, td, tr, th{
+	border:1px solid white;
+	border-collapse : collapse;
+	padding:10px;
+	text-align:center;
+}
+</style>
+</head>
+<body>
+
+
+<div class="header">
+  <a href="javascript:void(0);" class="logo">Supply chain Blockchain - Beer Game</a>
+  <div class="header-right">
+	<a class="btn" href="completeFlow.html" style="margin-right: 10px">Beer game complete flow</a>
+	<a class="btn" href="#" style="margin-right:10px;" onclick="resetGame()">Reset Game</a>
+    <a class="btn" href="login.html">Logout</a>
+  </div>
+</div>
+
+<div class="container">
+	<div class="content">
+	  <h1>Retailer</h1>
+	  <p>The rules of the game are pretty simple. You will play the role of a retailer and the computer will act out systematic roles of the Wholesaler, Distributor, and Production Unit. Thus, the game will start with you.</p>
+	  <p>
+		<ul class="cls-circle">
+			<li>As a retailer, you will first need to assess customer demands and check if you have enough to supply from your inventory</li>
+		</ul>
+	  </p>
+	  
+	  <p>For example, the customer demands 2 beers; you need to make sure that there are 2 or more units in your inventory to match the supply </p>
+	  <p>
+		<ul class="cls-circle">
+			<li>After this, you as the retailer will check the order and make sure that you have the number of units to supply as per your customer order</li>
+			<li>You then deliver the 2 beer cans to the customer or as many as the customer wants</li>
+			<li>Once the delivery is done, you will need to recheck customer demands and make sure that your inventory is stocked. For this, you will have to place an order for another 2 units with the wholesaler once the delivery cycle is completed</li>
+		</ul>
+	  </p>
+
+	<p>
+		<img src="images/retailer.png">
+	</p>
+	</div>
+	
+	<div class="contentRight">
+	<form>
+		<h1>Inventory Status</h1><br/>
+		<label>Units requested from Wholesaler:</label>
+		<span id="beerUnitsRequested"></span><br/><br/>
+		<label>Units Pending to Deliver :</label>
+		<span id="beerUnitsPending"></span><br/><br/>
+		<label>Stock:</label>
+		<span id="currentStock"></span><br/><br/>
+		<label>Total Units delivered till date:</label>
+		<span id="beerUnitsDelivered"></span><br/><br/>
+		<label>Enter Units to Purchase from Wholesaler:</label>
+		<input id="beerUnits" type="text"/>
+		<br/>
+		<span id="status"></span>
+		<br/>
+		<input type="button" onclick="placeOrder('Wholesaler')" value="Place Order"/>
+		<br/>
+		<label>Supply units to customer:</label>
+		<input id="beerUnitsToSupply" type="text"/>
+		<br/>
+		<span id="supplyStatus"></span>
+		<br/>
+		<input type="button" onclick="fulfillRequest('Retailer');" value="Supply Units to Customer"/>
+	</form>
+	<div id="transactions">
+		<h3>Purchase Details</h3>
+		<table id="transactionDetails">
+		</table>
+	</div>
+	<div id="saleTransactions">
+		<h3>Sale Details</h3>
+		<table id="saleTransactionDetails">
+		</table>
+	</div>
+	</div>
+</div>
+<script>
+	getTotalUnitsRequested("Wholesaler");
+	showCurrentStock("Retailer");
+	getTotalUnitsDelivered("Retailer");
+	getTotalUnitsPending("Retailer");
+	displayTransactions("Retailer");
+	displaySalesTransactions("Retailer");
+</script>
+</body>
+</html>

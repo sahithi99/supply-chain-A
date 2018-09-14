@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="beerGame.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="script/script.js"></script>
+
+<title>Customer</title>
+<style>
+body{
+	background-image: url("images/customer-background.jpg");
+}
+
+table, td, tr, th{
+	border:1px solid white;
+	border-collapse : collapse;
+	padding:10px;
+	text-align:center;
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+  <a href="javascript:void(0);" class="logo">Supply chain Blockchain - Beer Game</a>
+  <div class="header-right">
+	<a class="btn" href="completeFlow.html" style="margin-right: 10px">Beer game complete flow</a>
+	<a class="btn" href="#" style="margin-right:10px;" onclick="resetGame()">Reset Game</a>
+    <a class="btn" href="login.html">Logout</a>
+  </div>
+</div>
+
+<div class="content">
+  <h1>Welcome, John Doe</h1>
+  <p>
+	The aim of this portal is to demonstrate the idea and usage of the so-called beer distribution game.
+
+The beergame is a role-play simulation game that lets students experience typical coordination problems of (traditional) supply chains, in which information sharing and collaboration does not exist. In more general terms, this supply chain represents any non-coordinated system in which problems arise due to lack of systemic thinking.
+</p>  
+
+<p>
+	The Beer Game (or beer distribution game) was originally invented in the 1960’s by Jay Forrester at MIT as a result of his work on system dynamics.
+While the original goal of the simulation game was to research the effect of systems structures on the behavior of people (“structure creates behavior”), the game can be used to demonstrate the benefits of information sharing, supply chain management, and collaboration in the supply chain.
+</p>
+
+<p>To begin, please place your order using the form shown in right side of this window.</p>
+
+</div>
+<div class="contentRight">
+	<form>
+		<h1>Purchase Beer</h1>
+		<label>Total Units Pending:</label>
+		<span id="beerUnitsRequested"></span><br/><br/>
+		<label>Total Units received:</label>
+		<span id="beerUnitsReceived"></span><br/><br/>
+		<label>Enter Units to Purchase:</label>
+		<input id="beerUnits" type="text"/>
+		<br/>
+		<span id="status"></span>
+		<br/>
+		<input type="button" onclick="placeOrder('Retailer')" value="Place Order"/>
+	</form>
+	<div id="transactions">
+		<h3>Purchase Details</h3>
+		<table id="transactionDetails">
+		</table>
+	</div>
+</div>
+
+<script>
+	getTotalUnitsRequested("Retailer");
+	getTotalUnitsReceived("Retailer");
+	displayTransactions("Customer");
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="beerGame.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="script/script.js"></script>
+<title>Complete Flow</title>
+<style>
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+	font-family:Tahoma;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
+
+body{
+	background-image: url("images/completeflow-background.jpg");
+	background-size:100%;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="javascript:void(0);" class="logo">Supply chain Blockchain - Beer Game</a>
+  <div class="header-right">
+	<a class="btn" href="#" style="margin-right:10px;" onclick="resetGame()">Reset Game</a>
+    <a class="btn" href="login.html">Logout</a>
+  </div>
+</div>
+
+<div class="contentCompleteFlow">
+
+<h1>Beer Game – Prototype of Business Value Chain Supply</h1>
+  <p>
+	To explain complex prototypes of business models such as the Value Chain Supply, the Beer Game was developed in the 1950s at MIT. Since then, it has been a standard prototype for learners and professionals to understand the realms and dynamics of business ideas and strategies and implement these throughout the organization and market.
+  </p>
+  <p>
+	The Beer Game will help you explore the dynamics of the value chain supply, which illustrates the complexities involved with managing inventories and matching supply and demand needs of end-consumers. The channels involved in this process game are Retailers, Wholesalers, Distributors, and Production.
+  </p>
+
+<button class="accordion">Retailer</button>
+<div class="panel">
+  <p>The rules of the game are pretty simple. You will play the role of a retailer and the computer will act out systematic roles of the Wholesaler, Distributor, and Production Unit. Thus, the game will start with you.</p>
+  
+  <ul class="cls-circle">
+		<li>As a retailer, you will first need to assess customer demands and check if you have enough to supply from your inventory</li>
+  </ul>
+	
+<p>For example, the customer demands 2 beers; you need to make sure that there are 2 or more units in your inventory to match the supply </p>
+  <p>
+	<ul class="cls-circle">
+		<li>After this, you as the retailer will check the order and make sure that you have the number of units to supply as per your customer order</li>
+		<li>You then deliver the 2 beer cans to the customer or as many as the customer wants</li>
+		<li>Once the delivery is done, you will need to recheck customer demands and make sure that your inventory is stocked. For this, you will have to place an order for another 2 units with the wholesaler once the delivery cycle is completed</li>
+	</ul>
+  </p>
+<p>
+	<img src="images/retailer.png">
+</p>
+</div>
+
+<button class="accordion">Wholesaler</button>
+<div class="panel">
+	<p><ul class="cls-circle">
+		<li>The target inventory is check to match the demand and supply needs of the end-consumer with the retailer</li>
+		<li>Orders placed by the retailer is checked, who makes sure enough beer units are left to supply to the retailers</li>
+		<li>After this, the beers are delivered to the retailer</li>
+		<li>The wholesaler will again have to recheck the number of orders placed by the retailer for the next cycle and processes the same with the distributor</li>
+	</ul>
+	<p>
+		<img src="images/wholesaler.png">
+	</p>
+	</p>
+</div>
+
+<button class="accordion">Distributor</button>
+<div class="panel">
+	<p>
+	<ul class="cls-circle">
+		<li>The distributor first checks his inventory that is the achievable target to supply consumers with the desired order of beers</li>
+		<li>The distributor receives orders from the wholesaler on the number of units that are required for the cycle</li>
+		<li>The number of demanded beers is shifted to the wholesaler, and the wholesaler shifts them to the retailer</li>
+		<li>The orders placed by the wholesaler for the next cycles are checked again and the process repeats itself</li>
+	</ul>
+</p>
+
+<p>
+	<img src="images/distributor.png">
+</p>
+</div>
+
+<button class="accordion">Company (Brewery)</button>
+<div class="panel">
+	  <p>
+	<ul class="cls-circle">
+		<li>Brewery is where the beers are being produced and manufactured. Enough inventories are kept with the brewery to meet current supply demands.</li>
+		<li>As per the orders requested, the brewery moves the beer orders to the distributor.</li>
+		<li>After delivery is done, the brewery again receives the next set of orders for consumers.</li>
+		<li>Depending on this, the brewery will either move the number of orders to the distributor or manufacture/produce more beers for the supply chain to function.</li>
+	</ul>
+</p>
+
+<p>
+	<img src="images/company.png">
+</p>
+<p>	
+	The above four steps are performed by the Wholesaler, distributor, and production unit as well. In total, the game will have 24 rounds through which customer orders will be checked, incoming orders will be assessed, beers will be delivered and another set of orders need to be placed for the customer.
+</p>
+</div>
+<button class="accordion">Objectives of the game</button>
+<div class="panel">
+	  <p>The challenge is to understand the complexities and dynamics of supply chains in organizations</p>
+<p>You will only play the role of a retailer and ensure that there is no delay in the supply chain, avoid an increase in inventory costs (which doesn’t happen unless during the cases of seasonal hikes in customer demands), and prevent backorders for which you may be penalized.</p>
+
+
+<h3>Balancing the dynamics</h3>
+<p>At the end of each round, the player will check his inventory by adding incoming orders of beer and deducting the units which he/she needs to supply to the consumer</p>
+<p>The player then checks for the current demands of beer, rechecks his target inventory and decides the number of orders that need to be placed with the next channel.</p>
+<p>Each of the wholesaler, distributor, and brewery perform the same 4 steps to meet the supply chain.</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+
+</body>
+</html>

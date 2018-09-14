@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="beerGame.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="script/script.js"></script>
+<script>
+	initializeGame();
+</script>
+<title>Register</title>
+<style>
+
+body{
+	background-image: url("images/login-background.jpg");
+	background-size:100%;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="javascript:void(0);" class="logo">Supply chain Blockchain - Beer Game</a>
+  <div class="header-right">
+	
+  </div>
+</div>
+
+<div class="login-form">
+	<table>
+		<tr>
+			<td>
+				User Id : 
+			</td>
+			<td>
+				 <input id="userId" type="text"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Password :
+			</td>
+			<td>
+				 <input id="password"  type="password"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Select Role :
+			</td>
+			<td>
+					<select class="dropdown" name="userRole" id="userRole">
+						<option value="">-- Select role --</option>
+						<option value="Customer">Customer</option>
+						<option value="Retailer">Retailer</option>
+						<option value="Wholesaler">Wholesaler</option>
+						<option value="Distributor">Distributor</option>
+						<option value="Company">Company</option>
+					</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="button" onclick="registerUser()" class="btn" value="Register"/>
+			</td>
+			<td>
+				<a href="login.html">Login Here</a>
+			</td>
+		</tr>
+	</table>
+	<br/>
+</div>
+
+<script type="text/javascript">
+			var registerUser = function(){
+				var userRole = $('#userRole').val();
+				var pass = $('#password').val();
+				var userId = $('#userId').val();
+				
+				if(userRole=='' || password == '' || userId == ''){
+					alert('Please fill userid, password and role.');
+				} else {
+					var storedUsers = JSON.parse(localStorage.getItem("users"));
+					var user = {id:$('#userId').val(), password:pass, role:userRole};
+					
+					if(storedUsers != null){
+						storedUsers.push(user);
+						console.log(storedUsers);
+						var storedUsersString = JSON.stringify(storedUsers);
+						localStorage.setItem("users", storedUsersString);
+					} else{
+						storedUsers = new Array();
+						storedUsers.push(user);
+						var storedUsersString = JSON.stringify(storedUsers);
+						localStorage.setItem("users", storedUsersString);
+						console.log(storedUsers);
+					}
+					
+					var urlToForward = 'login.html';
+					window.location.href = urlToForward;
+				}
+			};
+</script>
+
+</body>
+</html>

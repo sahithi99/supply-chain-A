@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="beerGame.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="script/script.js"></script>
+<title>Distributor</title>
+<style>
+
+h1{
+	margin:0px;
+}
+
+body{
+	  background-image: url("images/completeflow-background.jpg");
+	  background-size:100%;
+	  color:white;
+}
+
+table, td, tr, th{
+	border:1px solid white;
+	border-collapse : collapse;
+	padding:10px;
+	text-align:center;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="javascript:void(0);" class="logo">Supply chain Blockchain - Beer Game</a>
+  <div class="header-right">
+	<a class="btn" href="completeFlow.html" style="margin-right: 10px">Beer game complete flow</a>
+	<a class="btn" href="#" style="margin-right:10px;" onclick="resetGame()">Reset Game</a>
+    <a class="btn" href="login.html">Logout</a>
+  </div>
+</div>
+
+<div class="container">
+	<div class="content">
+	  <h1> <img src="images/distributor-icon.png" style="width: 60px; height: 50px;"/> Distributor</h1>
+	  <p>
+		<ul class="cls-circle">
+			<li>The distributor first checks his inventory that is the achievable target to supply consumers with the desired order of beers</li>
+			<li>The distributor receives orders from the wholesaler on the number of units that are required for the cycle</li>
+			<li>The number of demanded beers is shifted to the wholesaler, and the wholesaler shifts them to the retailer</li>
+			<li>The orders placed by the wholesaler for the next cycles are checked again and the process repeats itself</li>
+		</ul>
+	</p>
+
+	<p>
+		<img src="images/distributor.png">
+	</p>
+	</div>
+	
+	<div class="contentRight">
+	<form>
+		<h1>Inventory Status</h1><br/>
+		<label>Units requested from Brewery:</label>
+		<span id="beerUnitsRequested"></span><br/><br/>
+		<label>Units Pending to Deliver :</label>
+		<span id="beerUnitsPending"></span><br/><br/>
+		<label>Stock:</label>
+		<span id="currentStock"></span><br/><br/>
+		<label>Total Units delivered till date:</label>
+		<span id="beerUnitsDelivered"></span><br/><br/>
+		<label>Enter Units to Purchase from Brewery:</label>
+		<input id="beerUnits" type="text"/>
+		<br/>
+		<span id="status"></span>
+		<br/>
+		<input type="button" onclick="placeOrder('Brewery')" value="Place Order"/>
+		<br/>
+		<label>Supply units to Wholesaler:</label>
+		<input id="beerUnitsToSupply" type="text"/>
+		<br/>
+		<span id="supplyStatus"></span>
+		<br/>
+		<input type="button" onclick="fulfillRequest('Distributor');" value="Supply Units to Wholesaler"/>
+	</form>
+	<div id="transactions">
+		<h3>Purchase Details</h3>
+		<table id="transactionDetails">
+		</table>
+	</div>
+	<div id="saleTransactions">
+		<h3>Sale Details</h3>
+		<table id="saleTransactionDetails">
+		</table>
+	</div>
+	</div>
+	
+<script>
+	getTotalUnitsRequested("Brewery");
+	showCurrentStock("Distributor");
+	getTotalUnitsDelivered("Distributor");
+	getTotalUnitsPending("Distributor");
+	displayTransactions("Distributor");
+	displaySalesTransactions("Distributor");
+</script>
+</div>
+</body>
+</html>
